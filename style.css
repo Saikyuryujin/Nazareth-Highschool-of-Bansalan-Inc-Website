@@ -1,0 +1,218 @@
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f1724;
+  background: #f4f7fb;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ---------- NAV ---------- */
+.site-header { position: fixed; top:0; left:0; right:0; z-index:100; }
+.nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 22px;
+  background: rgba(3,37,76,0.72);
+  backdrop-filter: blur(6px);
+}
+.logo { color:#fff; font-weight:700; letter-spacing:0.6px; font-size:1.1rem; }
+.nav-links { list-style:none; display:flex; gap:14px; margin:0; padding:0; align-items:center; }
+.nav-links a { color:#e6f0ff; text-decoration:none; font-weight:600; font-size:0.95rem; }
+.nav-links a:hover { color:#ffd966; }
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  margin-top:64px;
+  overflow:hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://scontent.fmnl9-1.fna.fbcdn.net/v/t39.30808-6/479510038_1175077021286303_2366981752881141755_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=r6M2vNPEld4Q7kNvwFEp7M1&_nc_oc=AdmO3bSvXcOrUB43cLQr0D23odPah-YhGjpmU8BWOQFRWLe_hWlsvK03iP52sbNbqVU&_nc_zt=23&_nc_ht=scontent.fmnl9-1.fna&_nc_gid=XS8Q29WXFWZANN7QZE0IvA&oh=00_AfeTd4DNlQ5rc_xtfGxLZ2NIogkWDC7YYnVhemXw4a6QdQ&oe=690BD8C3");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  filter: saturate(0.9) contrast(0.92);
+  z-index: 0;
+}
+
+
+.hero-overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(5,21,43,0.45), rgba(5,21,43,0.55));
+  z-index:1;
+}
+
+.hero-content {
+  position:relative; z-index:2; max-width:1100px; padding:40px 24px;
+  text-align:center; color:#fff;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-weight:700;
+  font-size: clamp(28px, 5.2vw, 56px);
+  margin:0 0 12px;
+  letter-spacing: -0.6px;
+  text-shadow: 0 6px 24px rgba(0,0,0,0.45);
+}
+
+.hero-sub {
+  font-size: clamp(13px, 1.3vw, 18px);
+  color: #dbe9ff;
+  max-width: 820px;
+  margin: 0 auto;
+  line-height:1.6;
+}
+
+/* ---------- LAYOUT ---------- */
+.container { max-width:1100px; margin:0 auto; padding: 20px; }
+.section { padding: 48px 18px; background: transparent; }
+
+/* ---------- SECTION TITLES ---------- */
+.section-title {
+  font-size:20px;
+  margin-bottom:14px;
+  color:#033063;
+  border-bottom: 3px solid #e8f0ff;
+  display:inline-block;
+  padding-bottom:8px;
+}
+
+/* ---------- WHAT TO EXPECT ---------- */
+.expect-list { margin-top:12px; display:grid; gap:14px; }
+.expect-item { background:#fff; border-radius:10px; padding:14px; box-shadow: 0 6px 18px rgba(5,30,66,0.06); }
+.expect-item h4 { margin:0 0 8px; color:#033063; }
+.expect-item p { margin:0; color:#475569; }
+.expect-cta { margin-top:12px; font-weight:600; color:#033063; }
+
+/* ---------- OUR SCHOOL HAS ---------- */
+.important-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.important-card {
+  background:#fff; border-radius:12px; padding:14px; text-align:left;
+  box-shadow: 0 6px 18px rgba(5,30,66,0.06);
+  display:flex; gap:12px; align-items:flex-start;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.important-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(3,30,60,0.08); }
+.important-card .icon { font-size:26px; margin-top:6px; }
+.important-card h4 { margin:0 0 6px; color:#033063; }
+.important-card p { margin:0; color:#475569; }
+
+/* ---------- CARDS GRID (STRANDS) ---------- */
+.grid { display:grid; gap:18px; }
+.strands-grid { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); margin-top:12px; }
+.card {
+  background:#fff; border-radius:12px; padding:16px; box-shadow: 0 6px 18px rgba(5,30,66,0.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(5,30,66,0.10); }
+.card h3 { color:#033063; margin-bottom:8px; }
+.card p { margin:0; color:#475569; }
+
+/* ---------- TEACHERS ---------- */
+.teacher-container { display:grid; gap:16px; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); align-items:start; margin-top:12px; }
+.teacher-card {
+  background:#fff; border-radius:12px; overflow:hidden; cursor:pointer;
+  box-shadow: 0 6px 18px rgba(5,30,66,0.06); transition: transform .22s ease;
+  display:flex; flex-direction:column;
+}
+.teacher-card:hover { transform: translateY(-8px); box-shadow: 0 14px 40px rgba(3,22,43,0.12); }
+.teacher-card img { width:100%; height:160px; object-fit:cover; display:block; }
+.teacher-meta { padding:12px; text-align:left; }
+.teacher-meta strong{ display:block; color:#033063; margin-bottom:6px; }
+.teacher-meta span { color:#6b7b94; font-size:14px; }
+
+/* ---------- modal ---------- */
+.modal { display:none; position:fixed; inset:0; background:rgba(3,22,43,0.6); z-index:120; align-items:center; justify-content:center; padding:16px; }
+.modal-inner { background:#fff; border-radius:12px; padding:20px; width:340px; text-align:center; box-shadow: 0 18px 60px rgba(3,22,43,0.25); position:relative; }
+.modal-inner img{ width:120px; height:120px; object-fit:cover; border-radius:50%; margin-bottom:12px; }
+.modal-close { position:absolute; top:8px; right:12px; background:transparent; border:0; font-size:22px; cursor:pointer; }
+
+/* ---------- ORG CHART ---------- */
+.chart { margin-top:14px; display:flex; flex-direction:column; gap:12px; align-items:center; }
+.row { display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; }
+.org-box {
+  background:#fff; border:2px solid #033063; border-radius:10px; padding:12px 14px; width:220px; text-align:center;
+  box-shadow: 0 6px 18px rgba(5,30,66,0.06); transition: transform .18s ease;
+}
+.org-box:hover { transform: translateY(-6px); background:#e8f0ff; }
+
+/* connector (vertical line) */
+.connector { width:4px; height:14px; background: linear-gradient(#033063,#4ea8ff); border-radius:2px; }
+
+/* ---------- FACULTY OFFICERS / GRADE COORD ---------- */
+.faculty-officers { margin-top:14px; background:#fff; padding:14px; border-radius:10px; box-shadow: 0 6px 18px rgba(5,30,66,0.06); max-width:900px; margin-left:auto; margin-right:auto; text-align:left; }
+.faculty-officers h3 { color:#033063; margin-top:0; }
+.faculty-officers ul { list-style:none; padding-left:14px; line-height:1.8; color:#122034; }
+
+/* ---------- CALENDAR / ACCORDION ---------- */
+.accordion { margin-top:12px; display:block; }
+.accordion-item { margin-bottom:10px; border-radius:10px; overflow:hidden; background:#fff; box-shadow: 0 6px 18px rgba(5,30,66,0.06); }
+.accordion-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  border:0;
+  background:linear-gradient(90deg,#fff,#f7fbff);
+  padding:12px 14px;
+  font-weight:700;
+  color:#033063;
+  cursor:pointer;
+  outline:none;
+  gap:10px;
+}
+.accordion-header .month-icon { margin-right:8px; font-size:18px; }
+.accordion-header .accordion-toggle { font-weight:900; color:#036; }
+.accordion-panel {
+  max-height:0;
+  overflow:hidden;
+  transition: max-height 350ms cubic-bezier(.2,.8,.2,1), padding 300ms ease;
+  padding: 0 14px;
+}
+.accordion-panel.open {
+  padding:12px 14px 16px;
+}
+
+.calendar-table { width:100%; border-collapse:collapse; margin-top:6px; }
+.calendar-table th, .calendar-table td {
+  padding:8px 10px;
+  text-align:left;
+  border-bottom: 1px solid #eef5ff;
+  color:#223049;
+  font-size:0.95rem;
+}
+.calendar-table thead th {
+  font-weight:700;
+  color:#033063;
+}
+
+/* ---------- CONTACT / FOOTER ---------- */
+.site-footer { background:#033063; color:#fff; padding:18px 0; margin-top:28px; text-align:center; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:720px) {
+  .nav { padding:10px 12px; }
+  .nav-links { gap:8px; font-size:13px; }
+  .hero-title { font-size: clamp(20px, 6vw, 34px); }
+  .teacher-container, .strands-grid, .important-grid { grid-template-columns: 1fr; }
+  .org-box, .card { width:100%; }
+  .calendar-table th, .calendar-table td { font-size:0.9rem; padding:8px; }
+}
