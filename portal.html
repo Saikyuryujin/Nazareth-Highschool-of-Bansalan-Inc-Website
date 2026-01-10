@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal - Nazareth High School</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Login card overlay */
+    .portal-login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+
+    .login-card {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .login-card h3 {
+      margin-bottom: 1rem;
+    }
+
+    .input-group {
+      margin: 1rem 0;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .btn-login, .btn-logout {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #2a4d69;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .btn-login:hover, .btn-logout:hover {
+      background-color: #1d3557;
+    }
+
+    .error-msg {
+      color: red;
+      margin-top: 0.5rem;
+    }
+
+    .dashboard {
+      padding: 2rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="logo">Nazareth High School</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LOGIN SCREEN -->
+    <div class="portal-login">
+      <div class="login-card">
+        <h3>Student Portal Login</h3>
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" />
+        </div>
+        <button class="btn-login" onclick="login()">Login</button>
+        <p class="error-msg" id="errorMsg"></p>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+      <h2>Welcome to Your Dashboard!</h2>
+      <p>Here you can check your grades, class info, and announcements.</p>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; 2025 Nazareth Highschool of Bansalan Inc</small>
+    </div>
+  </footer>
+
+  <script>
+    const users = [
+      { username: "student1", password: "1234" },
+      { username: "student2", password: "abcd" }
+    ];
+
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+
+      const user = users.find(u => u.username === username && u.password === password);
+
+      if (user) {
+        document.querySelector(".portal-login").style.display = "none";
+        document.querySelector(".dashboard").style.display = "block";
+      } else {
+        errorMsg.textContent = "Incorrect username or password.";
+      }
+    }
+
+    function logout() {
+      document.querySelector(".dashboard").style.display = "none";
+      document.querySelector(".portal-login").style.display = "flex";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("errorMsg").textContent = "";
+    }
+  </script>
+</body>
+</html>
